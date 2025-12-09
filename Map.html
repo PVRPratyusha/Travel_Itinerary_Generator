@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_50f0dc69791156593afd30ffd046cce2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed;
+                top: 10px; left: 50px; width: 350px; height: 120px;
+                background-color: white; border:2px solid #1e40af; z-index:9999;
+                font-size:12px; padding: 15px; border-radius: 5px;">
+    <h3 style="margin-top: 0; color: #1e40af;">pvr's San Jose, CA to Boston, MA Adventure</h3>
+    <p><b>Route:</b> San Jose, CA → Miami → FL → Boston, MA</p>
+    <p><b>Duration:</b> 7 days |
+       <b>Budget:</b> High |
+       <b>Cost:</b> $240.0</p>
+    <p><b>Interests:</b> Museums, Hiking</p>
+    <p style="font-size: 10px; color: #6b7280;">🛫 Blue = Cities | ⭐ Colored = Daily attractions</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_50f0dc69791156593afd30ffd046cce2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_50f0dc69791156593afd30ffd046cce2 = L.map(
+                "map_50f0dc69791156593afd30ffd046cce2",
+                {
+                    center: [36.544643125, -86.7876805],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b3d7b1317e7e5ffcbf46aa9e5b6b1693 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b3d7b1317e7e5ffcbf46aa9e5b6b1693.addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var poly_line_5c9814607a0e6546f4fe909304520fc3 = L.polyline(
+                [[37.3361663, -121.890591], [25.7741728, -80.19362], [40.7128, -74.006], [42.3554334, -71.060511]],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "darkblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+        var popup_e135f2502aebc019f893466525718702 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51b9ce2748db1c9e80b3b4174ea8a8bc = $(`<div id="html_51b9ce2748db1c9e80b3b4174ea8a8bc" style="width: 100.0%; height: 100.0%;">Travel Route: San Jose, CA → Miami → FL → Boston, MA</div>`)[0];
+                popup_e135f2502aebc019f893466525718702.setContent(html_51b9ce2748db1c9e80b3b4174ea8a8bc);
+            
+        
+
+        poly_line_5c9814607a0e6546f4fe909304520fc3.bindPopup(popup_e135f2502aebc019f893466525718702)
+        ;
+
+        
+    
+    
+            var marker_6382d5995058ea1509a2bb529d62e6df = L.marker(
+                [37.3361663, -121.890591],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_996f1431a3c9fea75502d30d028ad73d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d0932bf0ca8f4ff512a2569746a4bc77 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8af9d15fa3328840163e0fe581aeff1 = $(`<div id="html_f8af9d15fa3328840163e0fe581aeff1" style="width: 100.0%; height: 100.0%;">🛫 Start: San Jose, CA</div>`)[0];
+                popup_d0932bf0ca8f4ff512a2569746a4bc77.setContent(html_f8af9d15fa3328840163e0fe581aeff1);
+            
+        
+
+        marker_6382d5995058ea1509a2bb529d62e6df.bindPopup(popup_d0932bf0ca8f4ff512a2569746a4bc77)
+        ;
+
+        
+    
+    
+            marker_6382d5995058ea1509a2bb529d62e6df.bindTooltip(
+                `<div>
+                     San Jose, CA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6382d5995058ea1509a2bb529d62e6df.setIcon(icon_996f1431a3c9fea75502d30d028ad73d);
+            
+    
+            var marker_870d5c024508f596974b4829587b4a02 = L.marker(
+                [25.7741728, -80.19362],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_88039feb458294dac437bac6cf34a135 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b1a2ee8c60fc8b3bbef4224ac2edc68 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49d7641656aa99f78e503f83ed82b81a = $(`<div id="html_49d7641656aa99f78e503f83ed82b81a" style="width: 100.0%; height: 100.0%;">🔄 Stop: Miami</div>`)[0];
+                popup_1b1a2ee8c60fc8b3bbef4224ac2edc68.setContent(html_49d7641656aa99f78e503f83ed82b81a);
+            
+        
+
+        marker_870d5c024508f596974b4829587b4a02.bindPopup(popup_1b1a2ee8c60fc8b3bbef4224ac2edc68)
+        ;
+
+        
+    
+    
+            marker_870d5c024508f596974b4829587b4a02.bindTooltip(
+                `<div>
+                     Miami
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_870d5c024508f596974b4829587b4a02.setIcon(icon_88039feb458294dac437bac6cf34a135);
+            
+    
+            var marker_cb79fa0799eb71e0799f3624260fb8a3 = L.marker(
+                [40.7128, -74.006],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_8f81dbdd2a55854201c09cb57bac4522 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b74753793b3f8f75497bc17803000349 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_082905b4d80a75a23d1ab8022d8813eb = $(`<div id="html_082905b4d80a75a23d1ab8022d8813eb" style="width: 100.0%; height: 100.0%;">🔄 Stop: FL</div>`)[0];
+                popup_b74753793b3f8f75497bc17803000349.setContent(html_082905b4d80a75a23d1ab8022d8813eb);
+            
+        
+
+        marker_cb79fa0799eb71e0799f3624260fb8a3.bindPopup(popup_b74753793b3f8f75497bc17803000349)
+        ;
+
+        
+    
+    
+            marker_cb79fa0799eb71e0799f3624260fb8a3.bindTooltip(
+                `<div>
+                     FL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cb79fa0799eb71e0799f3624260fb8a3.setIcon(icon_8f81dbdd2a55854201c09cb57bac4522);
+            
+    
+            var marker_592c31b7e7e5ec4fac9d9d460cecd5a3 = L.marker(
+                [42.3554334, -71.060511],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_86f997b4698b9591420c84023776e146 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8d4a1d6efdcc012e8232b39bd92e7e7b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_767e5fba06bdc1241a77579feae99d2f = $(`<div id="html_767e5fba06bdc1241a77579feae99d2f" style="width: 100.0%; height: 100.0%;">🛬 End: Boston, MA</div>`)[0];
+                popup_8d4a1d6efdcc012e8232b39bd92e7e7b.setContent(html_767e5fba06bdc1241a77579feae99d2f);
+            
+        
+
+        marker_592c31b7e7e5ec4fac9d9d460cecd5a3.bindPopup(popup_8d4a1d6efdcc012e8232b39bd92e7e7b)
+        ;
+
+        
+    
+    
+            marker_592c31b7e7e5ec4fac9d9d460cecd5a3.bindTooltip(
+                `<div>
+                     Boston, MA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_592c31b7e7e5ec4fac9d9d460cecd5a3.setIcon(icon_86f997b4698b9591420c84023776e146);
+            
+    
+            var marker_cf0a57cd18e27ceb7bf0019dbcce99c6 = L.marker(
+                [25.783233535802573, -80.18002499848302],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_5574d2ef83fb4eb14efe6269a3f2e894 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_09f5eff8db65e65c3b99d6def0d1278f = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_c81960365e07810797f3efffdd596ac3 = $(`<div id="html_c81960365e07810797f3efffdd596ac3" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 1: Villa Vizcaya</h3>                 <p><b>🏙️ City:</b> Miami</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum, fee</p>                 <p><b>🗺️ Address:</b> 3251 South Miami Avenue, Miami, FL 33129, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Taxi</p>                 <p><b>💰 Cost:</b> $15.00</p>                 <p><b>⏰ Time:</b> 12 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Chipotle</b> (Fast Food)<br/>                    Coffee & Light meals</p>                 <p><b>Papa John's</b> (Italian)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_09f5eff8db65e65c3b99d6def0d1278f.setContent(html_c81960365e07810797f3efffdd596ac3);
+            
+        
+
+        marker_cf0a57cd18e27ceb7bf0019dbcce99c6.bindPopup(popup_09f5eff8db65e65c3b99d6def0d1278f)
+        ;
+
+        
+    
+    
+            marker_cf0a57cd18e27ceb7bf0019dbcce99c6.bindTooltip(
+                `<div>
+                     Day 1: Villa Vizcaya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf0a57cd18e27ceb7bf0019dbcce99c6.setIcon(icon_5574d2ef83fb4eb14efe6269a3f2e894);
+            
+    
+            var marker_fe3bd9ec335749806304b93a3f11104d = L.marker(
+                [25.75685532631014, -80.20277081933972],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_2ccea5457b80cf0a83b9307a68998023 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3c46171f049699e6408cabac10abb2c9 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_723d038bb0bb3117bb950d76f62f2b31 = $(`<div id="html_723d038bb0bb3117bb950d76f62f2b31" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 1: Patricia and Phillip Frost Museum of Science</h3>                 <p><b>🏙️ City:</b> Miami</p>                 <p><b>📍 Category:</b> entertainment, entertainment.museum</p>                 <p><b>🗺️ Address:</b> 1101 Biscayne Boulevard, Miami, FL 33132, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Chipotle</b> (Fast Food)<br/>                    Coffee & Light meals</p>                 <p><b>Papa John's</b> (Italian)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_3c46171f049699e6408cabac10abb2c9.setContent(html_723d038bb0bb3117bb950d76f62f2b31);
+            
+        
+
+        marker_fe3bd9ec335749806304b93a3f11104d.bindPopup(popup_3c46171f049699e6408cabac10abb2c9)
+        ;
+
+        
+    
+    
+            marker_fe3bd9ec335749806304b93a3f11104d.bindTooltip(
+                `<div>
+                     Day 1: Patricia and Phillip Frost Museum of Science
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fe3bd9ec335749806304b93a3f11104d.setIcon(icon_2ccea5457b80cf0a83b9307a68998023);
+            
+    
+            var marker_ae0cdcd48f299bc4ad64ef5739bba053 = L.marker(
+                [25.763391635948402, -80.2067395024966],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_cb22059251b8b9c1b0dd04a9bed83f3d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_42ea7a57fb59e5820d38497db1ac3578 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_d34f1dfcb37a951c01c9632540e7e13f = $(`<div id="html_d34f1dfcb37a951c01c9632540e7e13f" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 2: World Erotic Art Museum</h3>                 <p><b>🏙️ City:</b> Miami</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum</p>                 <p><b>🗺️ Address:</b> 1205 Washington Avenue, Miami Beach, FL 33139, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Burgers & Shakes</b> (American)<br/>                    Coffee & Light meals</p>                 <p><b>Local Museums, Hiking Restaurant 2</b> (Museums, Hiking Cuisine)<br/>                    All day dining</p></div></div>`)[0];
+                popup_42ea7a57fb59e5820d38497db1ac3578.setContent(html_d34f1dfcb37a951c01c9632540e7e13f);
+            
+        
+
+        marker_ae0cdcd48f299bc4ad64ef5739bba053.bindPopup(popup_42ea7a57fb59e5820d38497db1ac3578)
+        ;
+
+        
+    
+    
+            marker_ae0cdcd48f299bc4ad64ef5739bba053.bindTooltip(
+                `<div>
+                     Day 2: World Erotic Art Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ae0cdcd48f299bc4ad64ef5739bba053.setIcon(icon_cb22059251b8b9c1b0dd04a9bed83f3d);
+            
+    
+            var marker_7acec19697e91b212209e04b1a002870 = L.marker(
+                [25.791038252493756, -80.19779714234886],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_9e0c4c830014165cc7c205ed6066fd70 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c9f295537dc87d2f1074146191c3e8cb = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_c8398ce070b8167fd2672d41e4f88b0b = $(`<div id="html_c8398ce070b8167fd2672d41e4f88b0b" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 2: Jewish Museum of Florida</h3>                 <p><b>🏙️ City:</b> Miami</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum, fee</p>                 <p><b>🗺️ Address:</b> 301 Washington Avenue, Miami Beach, FL 33139, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Taxi</p>                 <p><b>💰 Cost:</b> $15.00</p>                 <p><b>⏰ Time:</b> 12 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Burgers & Shakes</b> (American)<br/>                    Coffee & Light meals</p>                 <p><b>Local Museums, Hiking Restaurant 2</b> (Museums, Hiking Cuisine)<br/>                    All day dining</p></div></div>`)[0];
+                popup_c9f295537dc87d2f1074146191c3e8cb.setContent(html_c8398ce070b8167fd2672d41e4f88b0b);
+            
+        
+
+        marker_7acec19697e91b212209e04b1a002870.bindPopup(popup_c9f295537dc87d2f1074146191c3e8cb)
+        ;
+
+        
+    
+    
+            marker_7acec19697e91b212209e04b1a002870.bindTooltip(
+                `<div>
+                     Day 2: Jewish Museum of Florida
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7acec19697e91b212209e04b1a002870.setIcon(icon_9e0c4c830014165cc7c205ed6066fd70);
+            
+    
+            var marker_d4b23660d2fbb265b5657828785110d4 = L.marker(
+                [40.72019880856307, -74.02335115091788],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_3a0fd62b10b18851f7b22b5c69f1d0cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d5e4a63365a012d9b1ef43e6446bc499 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_5e8621d68b2d1b53b487a4cddf8b47e5 = $(`<div id="html_5e8621d68b2d1b53b487a4cddf8b47e5" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 3: Cooper–Hewitt, Smithsonian Design Museum</h3>                 <p><b>🏙️ City:</b> Fl</p>                 <p><b>📍 Category:</b> building, building.historic, building.tourism, entertainment, entertainment.museum, fee, tourism, tourism.sights, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 2 East 91st Street, New York, NY 10128, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Juliana's Pizza</b> (Italian)<br/>                    Coffee & Light meals</p>                 <p><b>Sardi's</b> (Cafe)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_d5e4a63365a012d9b1ef43e6446bc499.setContent(html_5e8621d68b2d1b53b487a4cddf8b47e5);
+            
+        
+
+        marker_d4b23660d2fbb265b5657828785110d4.bindPopup(popup_d5e4a63365a012d9b1ef43e6446bc499)
+        ;
+
+        
+    
+    
+            marker_d4b23660d2fbb265b5657828785110d4.bindTooltip(
+                `<div>
+                     Day 3: Cooper–Hewitt, Smithsonian Design Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4b23660d2fbb265b5657828785110d4.setIcon(icon_3a0fd62b10b18851f7b22b5c69f1d0cf);
+            
+    
+            var marker_87f785cf0d1698585c39797f14aafdd8 = L.marker(
+                [40.700645399413744, -74.00790907468955],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_8193fdada154b57416c27e10dc222496 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_01c928874ad1ab39dbe30970977ed377 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_be7d36c27ff1810339d241639059be18 = $(`<div id="html_be7d36c27ff1810339d241639059be18" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 3: The Metropolitan Museum of Art</h3>                 <p><b>🏙️ City:</b> Fl</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum, fee, internet_access, internet_access.free, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 1000 5th Avenue, New York, NY 10035, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Taxi</p>                 <p><b>💰 Cost:</b> $15.00</p>                 <p><b>⏰ Time:</b> 12 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Juliana's Pizza</b> (Italian)<br/>                    Coffee & Light meals</p>                 <p><b>Sardi's</b> (Cafe)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_01c928874ad1ab39dbe30970977ed377.setContent(html_be7d36c27ff1810339d241639059be18);
+            
+        
+
+        marker_87f785cf0d1698585c39797f14aafdd8.bindPopup(popup_01c928874ad1ab39dbe30970977ed377)
+        ;
+
+        
+    
+    
+            marker_87f785cf0d1698585c39797f14aafdd8.bindTooltip(
+                `<div>
+                     Day 3: The Metropolitan Museum of Art
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_87f785cf0d1698585c39797f14aafdd8.setIcon(icon_8193fdada154b57416c27e10dc222496);
+            
+    
+            var marker_55c9b460f1e9fcadd9156cc3291076d3 = L.marker(
+                [40.72308268292444, -74.02348382705765],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_a133a272a6f2459d04248adaa18735ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56c879769cb770bdb416b65cf2191683 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_9965f4b157890977609a691da9d25761 = $(`<div id="html_9965f4b157890977609a691da9d25761" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 4: New-York Historical Society</h3>                 <p><b>🏙️ City:</b> Fl</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum, fee, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 170 Central Park West, New York, NY 10024, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Fitlife Foods</b> (Cafe)<br/>                    Coffee & Light meals</p>                 <p><b>Qdoba</b> (Fast Food)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_56c879769cb770bdb416b65cf2191683.setContent(html_9965f4b157890977609a691da9d25761);
+            
+        
+
+        marker_55c9b460f1e9fcadd9156cc3291076d3.bindPopup(popup_56c879769cb770bdb416b65cf2191683)
+        ;
+
+        
+    
+    
+            marker_55c9b460f1e9fcadd9156cc3291076d3.bindTooltip(
+                `<div>
+                     Day 4: New-York Historical Society
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_55c9b460f1e9fcadd9156cc3291076d3.setIcon(icon_a133a272a6f2459d04248adaa18735ac);
+            
+    
+            var marker_4272472113906bbf220293d17f211a8e = L.marker(
+                [40.726396917567826, -74.01091030834239],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_8290a1d4cf49cda10f99aab0200f843d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_adf826a36c5092e9d0fddc6cdd28e5d4 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_922c52550b01a5b236b02938ea4915f5 = $(`<div id="html_922c52550b01a5b236b02938ea4915f5" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 4: Museum of Arts and Design</h3>                 <p><b>🏙️ City:</b> Fl</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum, fee, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 2 Columbus Circle, New York, NY 10023, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Fitlife Foods</b> (Cafe)<br/>                    Coffee & Light meals</p>                 <p><b>Qdoba</b> (Fast Food)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_adf826a36c5092e9d0fddc6cdd28e5d4.setContent(html_922c52550b01a5b236b02938ea4915f5);
+            
+        
+
+        marker_4272472113906bbf220293d17f211a8e.bindPopup(popup_adf826a36c5092e9d0fddc6cdd28e5d4)
+        ;
+
+        
+    
+    
+            marker_4272472113906bbf220293d17f211a8e.bindTooltip(
+                `<div>
+                     Day 4: Museum of Arts and Design
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4272472113906bbf220293d17f211a8e.setIcon(icon_8290a1d4cf49cda10f99aab0200f843d);
+            
+    
+            var marker_cb4a310c2a659ae015b6f692bb195b3f = L.marker(
+                [42.35638649005675, -71.0542807783427],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_bea560852fd01544e26902e95799355e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ed4eddfca2c0d94c3b1253d318df7899 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_52ac1d661e2858ed930faa581739ae54 = $(`<div id="html_52ac1d661e2858ed930faa581739ae54" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 5: Museum of Science</h3>                 <p><b>🏙️ City:</b> Boston, Ma</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum, fee, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 1 Science Park, Boston, MA 02214, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>South Street Diner</b> (American)<br/>                    Coffee & Light meals</p>                 <p><b>Earl of Sandwich</b> (Fast Food)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_ed4eddfca2c0d94c3b1253d318df7899.setContent(html_52ac1d661e2858ed930faa581739ae54);
+            
+        
+
+        marker_cb4a310c2a659ae015b6f692bb195b3f.bindPopup(popup_ed4eddfca2c0d94c3b1253d318df7899)
+        ;
+
+        
+    
+    
+            marker_cb4a310c2a659ae015b6f692bb195b3f.bindTooltip(
+                `<div>
+                     Day 5: Museum of Science
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cb4a310c2a659ae015b6f692bb195b3f.setIcon(icon_bea560852fd01544e26902e95799355e);
+            
+    
+            var marker_9b38ebaeea7ca15c45bc3aa4936b1789 = L.marker(
+                [42.366359009776744, -71.0482318212688],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_ec3bf901f1c5d5acacf976eb14b50cdf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5e6b6a52e40a93c8c1f0f1bcd66fcc1 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_15db41d22c447fc6e6363ae474d33531 = $(`<div id="html_15db41d22c447fc6e6363ae474d33531" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 5: USS Constitution Museum</h3>                 <p><b>🏙️ City:</b> Boston, Ma</p>                 <p><b>📍 Category:</b> building, building.historic, building.tourism, entertainment, entertainment.museum, heritage, no_fee, no_fee.no, tourism, tourism.sights, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 22;28 First Avenue, Boston, MA 02129, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Taxi</p>                 <p><b>💰 Cost:</b> $15.00</p>                 <p><b>⏰ Time:</b> 12 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>South Street Diner</b> (American)<br/>                    Coffee & Light meals</p>                 <p><b>Earl of Sandwich</b> (Fast Food)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_c5e6b6a52e40a93c8c1f0f1bcd66fcc1.setContent(html_15db41d22c447fc6e6363ae474d33531);
+            
+        
+
+        marker_9b38ebaeea7ca15c45bc3aa4936b1789.bindPopup(popup_c5e6b6a52e40a93c8c1f0f1bcd66fcc1)
+        ;
+
+        
+    
+    
+            marker_9b38ebaeea7ca15c45bc3aa4936b1789.bindTooltip(
+                `<div>
+                     Day 5: USS Constitution Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b38ebaeea7ca15c45bc3aa4936b1789.setIcon(icon_ec3bf901f1c5d5acacf976eb14b50cdf);
+            
+    
+            var marker_b0eaeb08bb2303d6c8ad5cc8904830af = L.marker(
+                [42.355681733832256, -71.07755430369629],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_a95a3c20b66cb555d91fa2d409d70a8a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_446d418cfd0a27f1c2dcd6e9d7a04fb2 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_a917e4e411e0d7ba363d90a9abc93f87 = $(`<div id="html_a917e4e411e0d7ba363d90a9abc93f87" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 6: Larz Anderson Auto Museum</h3>                 <p><b>🏙️ City:</b> Boston, Ma</p>                 <p><b>📍 Category:</b> building, building.tourism, entertainment, entertainment.museum</p>                 <p><b>🗺️ Address:</b> 15 Newton Street, Brookline, MA 02445, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Santarpio's Pizza</b> (Italian)<br/>                    Coffee & Light meals</p>                 <p><b>Oleana</b> (Cafe)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_446d418cfd0a27f1c2dcd6e9d7a04fb2.setContent(html_a917e4e411e0d7ba363d90a9abc93f87);
+            
+        
+
+        marker_b0eaeb08bb2303d6c8ad5cc8904830af.bindPopup(popup_446d418cfd0a27f1c2dcd6e9d7a04fb2)
+        ;
+
+        
+    
+    
+            marker_b0eaeb08bb2303d6c8ad5cc8904830af.bindTooltip(
+                `<div>
+                     Day 6: Larz Anderson Auto Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b0eaeb08bb2303d6c8ad5cc8904830af.setIcon(icon_a95a3c20b66cb555d91fa2d409d70a8a);
+            
+    
+            var marker_d5320c12788a141b42da560faf241df6 = L.marker(
+                [42.33549961963766, -71.0768209051529],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_9bfd9162843e854ff9ccef4410b81875 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5655cb4afa35eca52959fba87003817f = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_7c5e71d8ce26191cc3cdd8a4bf00b9d2 = $(`<div id="html_7c5e71d8ce26191cc3cdd8a4bf00b9d2" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 6: John F. Kennedy Presidential Library and Museum</h3>                 <p><b>🏙️ City:</b> Boston, Ma</p>                 <p><b>📍 Category:</b> building, building.public_and_civil, building.tourism, education, education.library, entertainment, entertainment.museum, fee</p>                 <p><b>🗺️ Address:</b> Boston HarborWalk, Boston, MA 02125, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Santarpio's Pizza</b> (Italian)<br/>                    Coffee & Light meals</p>                 <p><b>Oleana</b> (Cafe)<br/>                    Coffee & Light meals</p></div></div>`)[0];
+                popup_5655cb4afa35eca52959fba87003817f.setContent(html_7c5e71d8ce26191cc3cdd8a4bf00b9d2);
+            
+        
+
+        marker_d5320c12788a141b42da560faf241df6.bindPopup(popup_5655cb4afa35eca52959fba87003817f)
+        ;
+
+        
+    
+    
+            marker_d5320c12788a141b42da560faf241df6.bindTooltip(
+                `<div>
+                     Day 6: John F. Kennedy Presidential Library and Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d5320c12788a141b42da560faf241df6.setIcon(icon_9bfd9162843e854ff9ccef4410b81875);
+            
+    
+            var marker_269965f94830c70ed64fb132dbfd2882 = L.marker(
+                [42.33644974377342, -71.07330813828126],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_23f148c6cd96b650829a96c9b7037028 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3577bb1bd00f77e8990df24a10bfe069 = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_1c5240d181bf921f097383e266922f3c = $(`<div id="html_1c5240d181bf921f097383e266922f3c" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 7: MIT Museum</h3>                 <p><b>🏙️ City:</b> Boston, Ma</p>                 <p><b>📍 Category:</b> entertainment, entertainment.museum, fee, wheelchair, wheelchair.yes</p>                 <p><b>🗺️ Address:</b> 314 Main Street, Cambridge, MA 02139, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Local Museums, Hiking Restaurant 1</b> (Museums, Hiking Cuisine)<br/>                    All day dining</p>                 <p><b>Local Museums, Hiking Restaurant 2</b> (Museums, Hiking Cuisine)<br/>                    All day dining</p></div></div>`)[0];
+                popup_3577bb1bd00f77e8990df24a10bfe069.setContent(html_1c5240d181bf921f097383e266922f3c);
+            
+        
+
+        marker_269965f94830c70ed64fb132dbfd2882.bindPopup(popup_3577bb1bd00f77e8990df24a10bfe069)
+        ;
+
+        
+    
+    
+            marker_269965f94830c70ed64fb132dbfd2882.bindTooltip(
+                `<div>
+                     Day 7: MIT Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_269965f94830c70ed64fb132dbfd2882.setIcon(icon_23f148c6cd96b650829a96c9b7037028);
+            
+    
+            var marker_3395e1f84a3c26088fb15d102128ff55 = L.marker(
+                [42.338039976067044, -71.04182430550597],
+                {
+}
+            ).addTo(map_50f0dc69791156593afd30ffd046cce2);
+        
+    
+            var icon_0013b4e566ef8fc27bf932a1d3e7aadb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16f4041b11eb261e552b2649a86d4b6b = L.popup({
+  "maxWidth": 380,
+});
+
+        
+            
+                var html_bcdc00445389942ce399c945be2714fc = $(`<div id="html_bcdc00445389942ce399c945be2714fc" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: Arial;">                 <h3 style="color: #1e40af;">Day 7: Ancient and Honorable Artillery Company Museum</h3>                 <p><b>🏙️ City:</b> Boston, Ma</p>                 <p><b>📍 Category:</b> entertainment, entertainment.museum</p>                 <p><b>🗺️ Address:</b> 1 Faneuil Hall Square, Boston, MA 02109, United States of America</p>                 <p><b>🌤️ Weather:</b> Pleasant, 16°C</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #2563eb;">Transportation</h4>                 <p><b>🚗 Mode:</b> Rideshare Premium</p>                 <p><b>💰 Cost:</b> $18.00</p>                 <p><b>⏰ Time:</b> 10 minutes</p>                 <p><b>📏 Distance:</b> ~1000m</p>                 <hr style="margin: 10px 0;">                 <h4 style="color: #dc2626;">🍽️ Nearby Restaurants</h4>                 <p><b>Local Museums, Hiking Restaurant 1</b> (Museums, Hiking Cuisine)<br/>                    All day dining</p>                 <p><b>Local Museums, Hiking Restaurant 2</b> (Museums, Hiking Cuisine)<br/>                    All day dining</p></div></div>`)[0];
+                popup_16f4041b11eb261e552b2649a86d4b6b.setContent(html_bcdc00445389942ce399c945be2714fc);
+            
+        
+
+        marker_3395e1f84a3c26088fb15d102128ff55.bindPopup(popup_16f4041b11eb261e552b2649a86d4b6b)
+        ;
+
+        
+    
+    
+            marker_3395e1f84a3c26088fb15d102128ff55.bindTooltip(
+                `<div>
+                     Day 7: Ancient and Honorable Artillery Company Museum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3395e1f84a3c26088fb15d102128ff55.setIcon(icon_0013b4e566ef8fc27bf932a1d3e7aadb);
+            
+</script>
+</html>
