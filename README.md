@@ -98,7 +98,7 @@ Travel_Itinerary_Generator/
 - Dates and number of days  
 - Waypoints  
 - Budget level  
-- Interests  
+- Interests and Likes
 
 ### **2. API Data Retrieval**
 - Coordinates (Geoapify)  
