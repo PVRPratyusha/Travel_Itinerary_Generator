@@ -84,9 +84,9 @@ Creates a clean, structured PDF with:
 Travel_Itinerary_Generator/
 │
 ├── Travel_Itinerary_Generator.ipynb # Main notebook
-├── README.md # Project documentation
-├── generated_pdfs/ # (Optional) Output PDFs
-├── generated_maps/ # (Optional) Output HTML maps
+├── README.md 
+├── generated_pdfs/ # Output PDFs
+├── generated_maps/ # Output HTML maps
 ```
 
 ---
